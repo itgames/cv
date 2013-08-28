@@ -19,12 +19,14 @@ public class Main {
         server.setConnectors(createConnectors());
         WebAppContext webapp = new WebAppContext();
         String path =  webapp.getClass().getClassLoader().getResource("").getPath();
-        webapp.setResourceBase(path+"/..");
-        webapp.setDescriptor("WEB-INF/web.xml");
+        webapp.setResourceBase(path+"/../cv_app");
+        webapp.setDescriptor("/WEB-INF/web.xml");
         webapp.setContextPath("/");
         server.setHandler(webapp);
         server.start();
     }
+
+
 
     private static Connector[] createConnectors() {
         return new Connector[]{createDefaultConnector()};
